@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=550, height=device-height, target-densitydpi=device-dpi"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css"/>
+    <title>LogistikApp</title>
+    <!--Install Console-->
+
+    <script type="text/javascript" src="js/misc.js"></script>
+    <script type="text/javascript">
+
+        if (typeof window.console == "undefined") {
+            window.console = {
+                log: function (str) {
+                    window.external.Notify(str);
+                }
+            };
+        }
+        window.onerror = function (e, url, lineNumber) {
+            console.log("ERROR! : " + url + "(" + lineNumber + ") : " + JSON.stringify(e));
+        };
+
+        //Overwrite alert and prompt if in browser
+        if (misc.isMobileApp()==false){
+            window.prompt = function (msg) {
+                console.log("PROMPT: " + msg)
+            }
+        }
+
+
+    </script>
+
+
+</head>
+<body>
+
+<div class="centerapp">
+
+    <div class="app">
+
+
+
+        <!--<a href="skype:004908941150015?call">Call the Skype Echo / Sound Test Service</a>
+
+
+
+        -->
+        <a onclick="alert('skype!');window.open('skype:00498941150015?call', '_system');return false;" href="">Oruafa!</a>
+
+        <script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>
+
+
+        <div id="SkypeButton" >
+            <script type="text/javascript">
+                Skype.ui({
+                    name: "call",
+                    element: "SkypeButton",
+                    participants: ["00498941150015"],
+                    imageSize: 32,
+                    imageColor: "black"
+                });
+            </script>
+        </div>
+
+
+        <div id="jobSelector">
+            <h2>Aufgabenwahl</h2>
+
+            <form>
+                <label>
+                    <input name="checkbox-0 " type="checkbox" id="cb_besuch">Besuch
+                </label>
+                <label>
+                    <input name="checkbox-0 " type="checkbox" id="cb_bestellung">Bestellung
+                </label>
+                <label>
+                    <input name="checkbox-0 " type="checkbox" id="cb_verraeumung">Verräumung
+                </label>
+                <label>
+                    <input name="checkbox-0 " type="checkbox" id="cb_austausch">Austausch von Bruch und Verderb
+                </label>
+
+            </form>
+            <br>
+            <button id="weiter_Aufgaben">Weiter</button>
+            <button id="zurueck_Aufgaben" style="float: left;">Zurück</button>
+
+        </div>
+
+        <div id="lieferantenschein1" style="display:none">
+            <br>
+            <tr>
+                <td>
+                    <label>
+                        Ziel
+                    </label>
+                <td><textarea id="t_ziel" rows="1" cols="50">
+                </textarea></td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        Grund
+                    </label>
+                <td><textarea id="t_grund" rows="1" cols="50">
+
+                </textarea></td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        Thematik
+                    </label>
+                <td><textarea id="t_thematik"rows="1" cols="50">
+
+                </textarea></td>
+            </tr>
+            <br>
+            <button id="weiter_lieferantenschein1">Weiter</button>
+            <button id="zurueck_lieferantenschein1" style="float: left;">Zurück</button>
+        </div>
+
+
+        <div id="lieferantenschein2" style="display:none">
+            <br>
+
+            <form>
+                <table style="width:100%;border: none">
+                    <tr>
+                        <td>
+                            <label>
+                                <input name="checkbox-0 " type="checkbox" id="cb_auftrag_getaetigt">Auftrag getätigt
+                            </label></td>
+                        <td><label>
+                            <input name="checkbox-0 " type="checkbox" id="cb_mhd">MHD-Kontrolle
+                        </label></td>
+                    </tr>
+                    <tr>
+                        <td><label>
+                            <input name="checkbox-0 " type="checkbox" id="cb_ruecknahme">Rücknahme
+                        </label></td>
+
+                        <td><label>
+                            <input name="checkbox-0 " type="checkbox" id="cb_reklamation">Reklamationsbearbeitung
+                        </label></td>
+                    </tr>
+                    <tr>
+                        <td><label>
+                            <input name="checkbox-0 " type="checkbox" id="cb_warenaufbau">Warenaufbau
+                        </label></td>
+                        <td><label>
+                            <input name="checkbox-0 " type="checkbox" id="cb_umbau">Umbau
+                        </label></td>
+                    </tr>
+                    <tr>
+                        <td><label>
+                            <input name="checkbox-0 " type="checkbox" id="cb_info_gespraech">Info-Gespräch
+                        </label></td>
+                        <td><label>
+                            <input name="checkbox-0 " type="checkbox" id="cb_nr_abgabe">Nummer-Abgabe
+                        </label></td>
+                    </tr>
+                    <td><label>
+                        <input name="checkbox-0 " type="checkbox" id="cb_verkostung">Verkostung
+                    </label></td>
+                    <td><label>
+                        <input name="checkbox-0 " type="checkbox" id="cb_sortimentsinfo">Sortimentsinfo
+                    </label></td>
+
+                    <tr>
+                        <td><label>
+                            <input name="checkbox-0 " type="checkbox" id="cb_aktionsabsprache">Aktionsabsprache
+                        </label></td>
+                        <td><label>
+                            <input name="checkbox-0 " type="checkbox" id="cb_bemusterung">Bemusterung
+                        </label></td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>
+                                <input name="checkbox-0 " type="checkbox" id="cb_verlostung">Verlosung
+                            </label>
+                        </td>
+
+
+                    </tr>
+                </table>
+
+            </form>
+            <br>
+            <button id="weiter_lieferantenschein2">Weiter</button>
+            <button id="zurueck_lieferantenschein2" style="float: left;">Zurück</BUTTON>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+<!--Own Libraries ------------------------------------------------->
+
+<script type="text/javascript" src="js/fastclick.js"></script>
+
+
+<script type="text/javascript" src="js/serverController.js"></script>
+
+<script type="text/javascript" src="js/logistikapp.js"></script>
+<script type="text/javascript" src="js/clientView.js"></script>
+<script type="text/javascript" src="js/job.js"></script>
+<script type="text/javascript" src="js/notification.js"></script>
+
+<script type="text/javascript" src="js/devdata.js"></script>
+<script type="text/javascript" src="js/preferences.js"></script>
+
+
+<!--Imported libraries ------------------------------------------------->
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
+<script type="text/javascript" src="js/socket.io.js"></script>
+
+<!--Cordova Libraries ------------------------------------------------->
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+<!--Toast------------------------------------------------->
+<link href="js/notifications/jquery.toast.min.css" rel="stylesheet" type="text/css">
+<script src="js/notifications/jquery.toast.js"></script>
+
+
+</body>
+</html>
